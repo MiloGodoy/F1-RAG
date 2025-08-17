@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import F1_RAGLogo from './assets/F1_RAG.png'
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import Bubble from "./component/Bubble"
 import LoadingBubble from "./component/LoadingBubble"
 import PromptSuggestionsRow from "./component/PromptSuggestionsRow"
@@ -44,7 +44,7 @@ const Home = () => {
             if (!response.ok) throw new Error('Network response was not ok')
             const reader = response.body.getReader()
             const decoder = new TextDecoder()
-            let assistantMessage = { id: crypto.randomUUID(), content: '', role: 'assistant' }
+            const  assistantMessage = { id: crypto.randomUUID(), content: '', role: 'assistant' }
             setMessages((prev) => [...prev, assistantMessage])
 
             while (true) {
